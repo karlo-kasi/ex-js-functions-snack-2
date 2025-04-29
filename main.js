@@ -178,3 +178,23 @@ Scrivi una funzione sequenzaOperazioni che accetta un array di operazioni (funzi
 
 Ogni operazione deve essere eseguita in sequenza con un ritardo uguale al tempo di intervallo.*/
 
+const array = [ () => 1 + 1, () => 10 / 2, () => 1 * 3]
+
+function sequenzaOperazioni (array, tempo){
+   
+    for(let i = 0; i < array.length; i++){
+        let ritardo = i * tempo
+        setTimeout(() => {
+            array[i]()
+        }, ritardo)
+    }
+    
+}
+
+sequenzaOperazioni([
+    () => console.log("Operazione 1"),
+    () => console.log("Operazione 2"),
+    () => console.log("Operazione 3")
+  ], 2000);
+
+
