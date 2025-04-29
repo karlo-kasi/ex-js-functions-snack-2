@@ -129,7 +129,7 @@ function eseguiEferma(messaggio, avvio, fine) {
 
             let intermedio = setInterval(() => {
                 console.log(messaggio)
-                
+
             }, 2000)
 
             setTimeout(() => {
@@ -150,3 +150,23 @@ inizio()
 intermedio()
 fine()
 
+/*  Snack 8 (Bonus)
+Crea una funzione che simula un conto alla rovescia
+Scrivi una funzione contoAllaRovescia che accetta un numero n e stampa il conto alla rovescia da n a 0, con un intervallo di 1 secondo tra ogni numero. Quando arriva a 0, stampa "Tempo scaduto!" e interrompe il timer.*/
+
+function contoAllaRovescia(n, messaggio) {
+
+    let inizio = n
+
+    const intervallId = setInterval(() => {
+        console.log(inizio--)
+        if (inizio === 0) {
+            console.log(messaggio)
+            clearInterval(intervallId)
+        }
+    }, 1000)
+
+
+}
+
+console.log(contoAllaRovescia(10, "Fine conto alla rovescia!"))
