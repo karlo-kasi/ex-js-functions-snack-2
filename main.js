@@ -1,8 +1,8 @@
-/* 🏆 Snack 1
-Crea una funzione che somma due numeri.
-Crea una funzione dichiarativa chiamata somma che accetta due numeri e restituisce la loro somma.
-Poi, definisci la stessa funzione somma ma come funzione anonima assegnata a una variabile
-Quindi, riscrivi la funzione somma con la sintassi delle arrow functions.*/
+// /* 🏆 Snack 1
+// Crea una funzione che somma due numeri.
+// Crea una funzione dichiarativa chiamata somma che accetta due numeri e restituisce la loro somma.
+// Poi, definisci la stessa funzione somma ma come funzione anonima assegnata a una variabile
+// Quindi, riscrivi la funzione somma con la sintassi delle arrow functions.*/
 
 
 function somma1(numero1, numero2) {
@@ -20,17 +20,17 @@ const somma3 = (numero1, numero2) => (numero1 + numero2)
 
 console.log(somma3(1, 2))
 
-/*Crea una arrow function che calcola il quadrato di un numero.
-Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga.*/
+// /*Crea una arrow function che calcola il quadrato di un numero.
+// Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga.*/
 
 const quadrato = (numero1) => (numero1 * numero1)
 
 console.log(quadrato(2))
 
 
-/*🏆 Snack 3
-Crea una funzione eseguiOperazione
-Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.*/
+// /*🏆 Snack 3
+// Crea una funzione eseguiOperazione
+// Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.*/
 
 const moltiplicazione = (a, b) => a * b
 const divisione = (a, b) => a / b
@@ -41,9 +41,9 @@ console.log(eseguiOperazione(4, 4, moltiplicazione))
 console.log(eseguiOperazione(16, 4, divisione))
 
 
-/*🏆 Snack 4
-Crea un generatore di funzioni creaTimer
-Scrivi una funzione creaTimer che accetta un tempo (in ms) e restituisce una nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!".*/
+// /*🏆 Snack 4
+// Crea un generatore di funzioni creaTimer
+// Scrivi una funzione creaTimer che accetta un tempo (in ms) e restituisce una nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!".*/
 
 function creaTimer(tempo) {
 
@@ -58,11 +58,11 @@ const timer3s = creaTimer(4000)
 
 timer3s()
 
-/*🏆 Snack 5
-Crea una funzione stampaOgniSecondo con setInterval.
-Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
+// /*🏆 Snack 5
+// Crea una funzione stampaOgniSecondo con setInterval.
+// Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
 
-Nota: Questa funzione creerà un loop infinito. Interrompilo manualmente o usa clearInterval() in un altro script.*/
+// Nota: Questa funzione creerà un loop infinito. Interrompilo manualmente o usa clearInterval() in un altro script.*/
 
 let count = 0
 
@@ -75,10 +75,9 @@ function stampaognisecondo(messaggio) {
             }
             console.log(messaggio)
             count = count + 1
-            console.log(count)
         }, 1000)
 
-        
+
     }
 }
 
@@ -87,3 +86,67 @@ function stampaognisecondo(messaggio) {
 const messaggio = stampaognisecondo("Hello")
 
 messaggio()
+
+
+// /*🏆 Snack 6
+// Crea un contatore automatico con setInterval
+// Definisci una funzione creaContatoreAutomatico che accetta un intervallo di tempo e restituisce una funzione che avvia un setInterval, incrementando un contatore e stampandolo.*/
+
+
+
+function creaContatoreAutomatico(tempo) {
+
+    let contatore = 0
+
+    return () => {
+        let intervallo = setInterval(() => {
+
+            if (contatore == 5) {
+                clearInterval(intervallo)
+            }
+            contatore = contatore + 1
+            console.log(contatore)
+        }, tempo)
+    }
+}
+
+const conteggio = creaContatoreAutomatico(1000)
+
+conteggio()
+
+
+/*Snack 7
+Crea una funzione che ferma un timer dopo un certo tempo
+Scrivi una funzione eseguiEferma che accetta un messaggio, un tempo di avvio e un tempo di stop. Il messaggio deve essere stampato a intervalli regolari, ma si deve fermare dopo il tempo di stop.*/
+
+
+function eseguiEferma(messaggio, avvio, fine) {
+
+    return () => {
+        setTimeout(() => {
+
+            console.log(messaggio)
+
+            let intermedio = setInterval(() => {
+                console.log(messaggio)
+                
+            }, 2000)
+
+            setTimeout(() => {
+                clearInterval(intermedio)
+            }, fine)
+        }, avvio)
+    }
+
+}
+
+const inizio = eseguiEferma("Sto inziando", 1000)
+
+const intermedio = eseguiEferma("Continuo...", 2000, 8000)
+
+const fine = eseguiEferma("Fine!", 10000)
+
+inizio()
+intermedio()
+fine()
+
