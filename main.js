@@ -63,3 +63,27 @@ Crea una funzione stampaOgniSecondo con setInterval.
 Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
 
 Nota: Questa funzione creerà un loop infinito. Interrompilo manualmente o usa clearInterval() in un altro script.*/
+
+let count = 0
+
+function stampaognisecondo(messaggio) {
+
+    return () => {
+        let intervallo = setInterval(() => {
+            if (count == 5) {
+                clearInterval(intervallo)
+            }
+            console.log(messaggio)
+            count = count + 1
+            console.log(count)
+        }, 1000)
+
+        
+    }
+}
+
+
+
+const messaggio = stampaognisecondo("Hello")
+
+messaggio()
