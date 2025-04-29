@@ -26,3 +26,16 @@ Definisci una funzione chiamata quadrato che accetta un numero e restituisce il 
 const quadrato = (numero1) => (numero1 * numero1)
 
 console.log(quadrato(2))
+
+
+/*🏆 Snack 3
+Crea una funzione eseguiOperazione
+Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.*/
+
+const moltiplicazione = (a, b) => a * b
+const divisione = (a,b) => a / b 
+
+const eseguiOperazione = (a, b, callback) => callback(a, b)
+
+console.log(eseguiOperazione(4,4, moltiplicazione))
+console.log(eseguiOperazione(16,4, divisione))
