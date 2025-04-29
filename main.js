@@ -33,9 +33,27 @@ Crea una funzione eseguiOperazione
 Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.*/
 
 const moltiplicazione = (a, b) => a * b
-const divisione = (a,b) => a / b 
+const divisione = (a, b) => a / b
 
 const eseguiOperazione = (a, b, callback) => callback(a, b)
 
-console.log(eseguiOperazione(4,4, moltiplicazione))
-console.log(eseguiOperazione(16,4, divisione))
+console.log(eseguiOperazione(4, 4, moltiplicazione))
+console.log(eseguiOperazione(16, 4, divisione))
+
+
+/*🏆 Snack 4
+Crea un generatore di funzioni creaTimer
+Scrivi una funzione creaTimer che accetta un tempo (in ms) e restituisce una nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!".*/
+
+function creaTimer(tempo) {
+
+    return () => {
+        setTimeout(() => {
+            console.log("Tempo scaduto!")
+        }, tempo)
+    }
+}
+
+const timer3s = creaTimer(4000)
+
+timer3s()
