@@ -20,6 +20,9 @@ const somma3 = (numero1, numero2) => (numero1 + numero2)
 
 console.log(somma3(1, 2))
 
+/*Crea una arrow function che calcola il quadrato di un numero.
+Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga.*/
 
+const quadrato = (numero1) => (numero1 * numero1)
 
-console.log()
+console.log(quadrato(2))
